@@ -1,24 +1,45 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# タイトル
+##　『Animex』
+#　コンセプト
+## 好きなアニメについて話したい人が交流できる場所
+Animexはあなたが見ているアニメについて話す場所です。
+アニメ好きが繋がりを構築できる場所を提供することが目的のアプリです。
+トピックごとにコメントを行うことができる。
+遠く離れた同じ趣味を持つ仲間と出会い、盛り上がりましょう！
+## バージョン
+* Ruby 2.6.5
+* Ruby on Rails 5.2.5
+* PostgreSQL 13.2
+## 機能一覧
+- topicのCRUD機能(文章・画像の投稿、編集・削除)
+- topicの作成・登録機能
+- topicのお気に入り機能
+- お気に入り一覧表示機能
+- コメント機能
+- ユーザ登録機能
+- ユーザ管理機能
+- ログイン機能
+- ゲストログイン機能
+- ログイン機能
+- フォロー機能
+- 管理者権限機能
+- topic検索機能
+- Heroku
+## 実行手順
+```
+$ git clone https://github.com/takuya-png/Animex
+$ cd Animex
+$ bundle install
+$ rails db:create rails db:migrate
+$ rails s
+```
+## カタログ設計
+https://docs.google.com/spreadsheets/d/1XjkHxGKZynnLdD60erqMfycNzm9x-eXxxyZ72N6KUuc/edit#gid=0
+## テーブル定義
+https://docs.google.com/spreadsheets/d/15Fg8UlFJgCzs3iSK7OVQr5c7elfwkjDeZ_2AwCJpGMw/edit#gid=0
+## ER図
+https://cacoo.com/diagrams/Tvei0SOzXkxFyqwP/E44A2
+## ワイヤーフレーム
+https://cacoo.com/diagrams/L32TYbKvqoohQ3Xv/08EBF
+## 画面遷移図
+https://cacoo.com/diagrams/OxYs02WlbptkgPnV/54BE2
