@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   root 'topics#index'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: {
-    registrations: 'users/registrations'
+    registrations: 'users/registrations',
+    passwords: 'users/passwords'
   }
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
