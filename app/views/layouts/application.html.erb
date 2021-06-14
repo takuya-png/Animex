@@ -26,6 +26,8 @@
   <% if alert %>
     <p class="alert alert-error"><%= alert %></p>
     <% end %>
-    <%= yield %>
+    <div class="container-fluid py-4 <%= devise_controller? ? 'mw-md' : 'mw-xl' %>">
+      <%= yield %>
+    </div>
   </body>
 </html>
