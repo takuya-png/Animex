@@ -1,0 +1,23 @@
+<% if @topic.errors.any? %>
+  <ul>
+    <% @topic.errors.full_messages.each do |msg| %>
+    <li>
+      <%= msg %>
+    </li>
+    <% end %>
+  </ul>
+<% end %>
+<%= form_with(model:@topic, local: true) do |form| %>
+  <div>
+    <%= form.label :title, 'タイトル' %>
+    <%= form.text_field :title %>
+  </div>
+  <div>
+    <%= form.label :content, 'コンテンツ' %>
+    <%= form.text_field :content %>
+  </div>
+  <div>
+    <%= form.submit 'Create' %>
+  </div>
+<% end %>
+<%= link_to '一覧に戻る', topics_path %> 

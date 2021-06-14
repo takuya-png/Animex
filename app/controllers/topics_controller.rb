@@ -10,7 +10,7 @@ class TopicsController < ApplicationController
   end
 
   def create
-    @topic = Topic.nex(topic_params)
+    @topic = Topic.new(topic_params)
     if @topic.save
       redirect_to topics_path, notice: '作成しました'
     else
