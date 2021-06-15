@@ -17,6 +17,12 @@
     <%= form.text_field :content %>
   </div>
   <div>
+    <%= form.label :image, '画像' %>
+    <%= image_tag(@topic.image.url) if @topic.image && @history.image.url %>
+    <%= form.file_field :image %>
+    <%= form.hidden_field :image_cache %>
+  </div>
+  <div>
     <%= form.submit 'Create' %>
   </div>
 <% end %>
