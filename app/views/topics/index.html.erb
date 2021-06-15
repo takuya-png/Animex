@@ -4,8 +4,7 @@
   <h1>Topics</h1>
 <% end %>
 <%= link_to 'ゲストログイン（閲覧用）', topics_guest_sign_in_path, method: :post %>
-<p><%= notice %></p>
-<table>
+<table class = "topic_content">
   <tr>
     <th>タイトル</th>
     <th>内容</th>
@@ -15,7 +14,7 @@
   <tr>
     <td><%= topic.title %></td>
     <td><%= topic.content %></td>
-    <td><%= topic.image %></td>
+    <td><%= image_tag(topic.image.url) if topic.image && topic.image.url %><%#= image_tag topic.image.url %></td>
     <td><%= link_to '詳細', topic_path(topic.id) %></td>
     <td><%= link_to '編集', edit_topic_path(topic.id) %></td>
     <td><%= link_to '削除', topic_path(topic.id), method: :delete, data: {confirm: '削除してよろしいですか？'} %></td>
