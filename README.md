@@ -50,9 +50,9 @@ $ rails s
 https://docs.google.com/spreadsheets/d/1XjkHxGKZynnLdD60erqMfycNzm9x-eXxxyZ72N6KUuc/edit#gid=0
 ## テーブル定義
 https://docs.google.com/spreadsheets/d/15Fg8UlFJgCzs3iSK7OVQr5c7elfwkjDeZ_2AwCJpGMw/edit#gid=0
-## ER図
-https://cacoo.com/diagrams/Tvei0SOzXkxFyqwP/E44A2
-## ワイヤーフレーム
-https://cacoo.com/diagrams/L32TYbKvqoohQ3Xv/08EBF
-## 画面遷移図
-https://cacoo.com/diagrams/OxYs02WlbptkgPnV/54BE2
+## ER図  
+<img src="./public/images/ER.png" alt="ER図" width='650px'>  
+## ワイヤーフレーム  
+https://cacoo.com/diagrams/L32TYbKvqoohQ3Xv/08EBF  
+## 画面遷移図  
+<img src="./public/images/imagesenni.png" alt="画面遷移図" width='650px'>
