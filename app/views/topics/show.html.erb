@@ -3,3 +3,10 @@
 <p>内容：<%= @topic.content %></p>
 <p>画像：<%= image_tag @topic.image.url %></p>
 <%= link_to '一覧に戻る', topics_path %> 
+<% unless @topic.user_id == current_user.id %>
+  <% if @favorite.present? %>
+    <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
+  <% else %>
+    <%= link_to 'お気に入りする', favorites_path(topic_id: @topic.id), method: :post, class: 'btn btn-primary' %>
+  <% end %>
+<% end %>

@@ -10,7 +10,8 @@ class TopicsController < ApplicationController
   end
 
   def create
-    @topic = Topic.new(topic_params)
+    @topic = current_user.topics.build(topic_params)
+    # binding.irb
     if @topic.save
       redirect_to topics_path, notice: '作成しました'
     else
@@ -19,6 +20,7 @@ class TopicsController < ApplicationController
   end
 
   def show
+    @favorite = current_user.favorites.find_by(topic_id: @topic.id)
   end
 
   def edit
@@ -46,7 +48,7 @@ class TopicsController < ApplicationController
   end
   private
   def topic_params
-    params.require(:topic).permit(:title, :content, :image, :image_cache)
+    params.require(:topic).permit(:title, :content, :image, :image_cache, :user_id)
   end
   def set_topic
     @topic = Topic.find(params[:id])
