@@ -1,0 +1,5 @@
+<h3>topic詳細</h3>
+<p>タイトル：<%= @topic.title %></p>
+<p>内容：<%= @topic.content %></p>
+<p>画像：<%= image_tag @topic.image.url %></p>
+<%= link_to '一覧に戻る', topics_path %> 

@@ -16,10 +16,9 @@ ActiveRecord::Schema.define(version: 2021_06_13_130721) do
   enable_extension "plpgsql"
 
   create_table "topics", force: :cascade do |t|
-    t.bigint "topic_id"
     t.string "title"
-    t.text "description"
-    t.bigint "user_id"
+    t.text "content"
+    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
