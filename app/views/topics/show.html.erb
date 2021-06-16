@@ -1,8 +1,3 @@
-<h3>topic詳細</h3>
-<p>タイトル：<%= @topic.title %></p>
-<p>内容：<%= @topic.content %></p>
-<p>画像：<%= image_tag @topic.image.url %></p>
-<%= link_to '一覧に戻る', topics_path %> 
 <% unless @topic.user_id == current_user.id %>
   <% if @favorite.present? %>
     <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
@@ -11,17 +6,21 @@
   <% end %>
 <% end %>
 
+<h3>topic詳細</h3>
+<p>タイトル：<%= @topic.title %></p>
+<p>内容：<%= @topic.content %></p>
+<p>画像：<%= image_tag @topic.image.url %></p>
+<%= link_to '編集', edit_topic_path(@topic) %> 
+
+
 <div class="container">
   <p id="notice"><%= notice %></p>
   <div class="topic-text">
-    <p><strong>タイトル</strong>：<%= @topic.title %></p>
-    <p><strong>内容</strong>：<%= @topic.content %></p>
   </div>
   <p>コメント一覧（ここから下の内容が重要）</p>
   <div id="comments_area">
     <%= render partial: 'comments/index', locals: { comments: @comments, topic: @topic } %>
   </div>
   <%= render partial: 'comments/form', locals: { comment: @comment, topic: @topic } %>
-  <%= link_to '編集', edit_topic_path(@topic) %> |
-  <%= link_to '戻る', topics_path %>
 </div>
+<%= link_to '一覧に戻る', topics_path %> 
