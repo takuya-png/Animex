@@ -22,6 +22,8 @@ class TopicsController < ApplicationController
 
   def show
     @favorite = current_user.favorites.find_by(topic_id: @topic.id)
+    @comments = @topic.comments
+    @comment = @topic.comments.build
   end
 
   def edit
