@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'comments/create'
   resources :topics do
     resources :comments
   end
