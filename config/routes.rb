@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :topics do
+    resources :comments
+  end
   post '/topics/guest_sign_in', to: 'topics#guest_sign_in'
   resources :topics
   resources :favorites, only: [:create, :destroy]
