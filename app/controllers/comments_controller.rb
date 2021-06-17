@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_topic, only: [:create, :edit, :update]
+  before_action :set_topic, only: [:create, :edit, :update, :destroy]
   def create
     @topic = Topic.find(params[:topic_id])
     @comment = @topic.comments.build(comment_params)
