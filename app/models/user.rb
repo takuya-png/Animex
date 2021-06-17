@@ -13,4 +13,12 @@ class User < ApplicationRecord
       user.password = SecureRandom.urlsafe_base64
     end
   end
+
+  def follow!(other_user)
+    active_relationships.create!(followed_id: other_user.id)
+  end
+
+  def following?(other_user)
+    active_relationships.find_by(followed_id: other_user.id)
+  end
 end
