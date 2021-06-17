@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :topics
   resources :favorites, only: [:create, :destroy]
   resources :users, only: [:index]
+  resources :relationships, only: [:create, :destroy]
   root 'topics#index'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: {
