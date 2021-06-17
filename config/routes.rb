@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post '/topics/guest_sign_in', to: 'topics#guest_sign_in'
   resources :topics
   resources :favorites, only: [:create, :destroy]
+  resources :users, only: [:index]
   root 'topics#index'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: {
