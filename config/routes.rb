@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   post '/topics/guest_sign_in', to: 'topics#guest_sign_in'
   resources :topics
   resources :favorites, only: [:create, :destroy]
-  resources :users, only: [:index]
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end  
   resources :relationships, only: [:create, :destroy]
   root 'topics#index'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'

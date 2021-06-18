@@ -1,6 +1,7 @@
 class TopicsController < ApplicationController
   before_action :set_topic, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
+
   def index
     @topics = Topic.all
     # @favorite = current_user.favorites.find_by(topic_id: @topic.id)
@@ -12,7 +13,6 @@ class TopicsController < ApplicationController
 
   def create
     @topic = current_user.topics.build(topic_params)
-    # binding.irb
     if @topic.save
       redirect_to topics_path, notice: '作成しました'
     else
@@ -50,9 +50,11 @@ class TopicsController < ApplicationController
     redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
   end
   private
+
   def topic_params
     params.require(:topic).permit(:title, :content, :image, :image_cache, :user_id)
   end
+
   def set_topic
     @topic = Topic.find(params[:id])
   end
