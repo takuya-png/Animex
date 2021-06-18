@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'relationships/create'
-  get 'relationships/destroy'
   resources :topics do
     resources :comments
   end
@@ -13,7 +11,7 @@ Rails.application.routes.draw do
     end
   end  
   resources :relationships, only: [:create, :destroy]
-  root 'topics#index'
+  root 'tops#index'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
