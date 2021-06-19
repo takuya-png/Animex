@@ -24,6 +24,4 @@
   </div>
   <%= render partial: 'comments/form', locals: { comment: @comment, topic: @topic } %>
   </div>
-  <%=link_to "#{@topic.user.name}", user_path(@topic.user.id), class:'user_show_page' %>
-
 <%= link_to '一覧に戻る', topics_path %> 
