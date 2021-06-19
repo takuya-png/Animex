@@ -1,6 +1,8 @@
 class TopicsController < ApplicationController
   before_action :set_topic, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
+  before_action :set_q, only: [:index, :search]
+
 
   def index
     @topics = Topic.all
@@ -49,7 +51,16 @@ class TopicsController < ApplicationController
     sign_in user
     redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
   end
+
+  def search
+    @results = @q.result
+  end
+
   private
+
+  def set_q
+    @q = Topic.ransack(params[:q])
+  end
 
   def topic_params
     params.require(:topic).permit(:title, :content, :image, :image_cache, :user_id)
