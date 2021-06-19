@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_topic, only: [:create, :edit, :update, :destroy]
+
   def create
     @topic = Topic.find(params[:topic_id])
     @comment = @topic.comments.build(comment_params)
@@ -11,6 +12,7 @@ class CommentsController < ApplicationController
       end
     end
   end
+
   def edit
     @comment = @topic.comments.find(params[:id])
     respond_to do |format|
@@ -18,6 +20,7 @@ class CommentsController < ApplicationController
       format.js { render :edit }
     end
   end
+
   def update
     @comment = @topic.comments.find(params[:id])
       respond_to do |format|
@@ -41,9 +44,11 @@ class CommentsController < ApplicationController
   end
 
   private
+
   def comment_params
-    params.require(:comment).permit(:topic_id, :content)
+    params.require(:comment).permit(:topic_id, :content, :image, :image_cache).merge(user_id: current_user.id)
   end
+  
   def set_topic
     @topic = Topic.find(params[:topic_id])
   end

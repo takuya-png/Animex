@@ -1,0 +1,76 @@
+// Place all the styles related to the top controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.top-index {
+  padding: 40px;
+  &_body {
+    padding: 0 80px;
+  }
+  &_explanation {
+    margin: 40px 0;
+  }
+  &_slideshow {
+    &_box {
+      width: 100%;
+      height: 500px;
+    }
+  }
+}
+
+
+.box {
+  position   : relative;
+}
+
+.box .bgImg {
+  position   : absolute;
+  width  : 100%;
+  height     : 100%;
+  top        : 0;
+  left       : 0;
+  bottom     : 0;
+  right      : 0;
+  opacity    : 0;
+  background-size: cover;
+  animation  : bgAnime 30s infinite;   /* 6画像 × 各5s = 30s */
+}
+
+/* --- 段差で背景画像のアニメーションを実行 ----------------- */
+.box .src1 {
+  background-image : url('top-page1.jpeg');   /* 背景の画像を指定 */
+  background-position: 100% auto;
+}
+.box .src2 {
+  background-image : url('top-page2.jpeg');   /* 背景の画像を指定 */
+  animation-delay  : 5s;
+  background-position: 100% 100%;
+}
+.box .src3 {
+  background-image : url('top-page3.jpeg');   /* 背景の画像を指定 */
+  animation-delay  : 10s;
+  background-position: 100% 100%;
+}
+.box .src4 {
+  background-image : url('top-page4.jpeg');   /* 背景の画像を指定 */
+  animation-delay  : 15s;
+  background-position: 100% 100%;
+}
+.box .src5 {
+  background-image : url('top-page5.jpeg');   /* 背景の画像を指定 */
+  animation-delay  : 20s;
+  background-position: 100% 100%;
+}
+.box .src6 {
+  background-image : url('top-page6.jpeg');   /* 背景の画像を指定 */
+  animation-delay  : 25s;
+  background-position: auto 100%;
+}
+
+@keyframes bgAnime {
+   0% { opacity: 0; }
+   5% { opacity: 1; }
+  25% { opacity: 1; }
+  30% { opacity: 0; }
+ 100% { opacity: 0; }
+}

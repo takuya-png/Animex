@@ -2,11 +2,12 @@
   <% if @favorite.present? %>
     <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
   <% else %>
-    <%= link_to 'お気に入りする', favorites_path(topic_id: @topic.id), method: :post, class: 'btn btn-primary' %>
+    <%= link_to 'お気に入りする', favorites_path(topic_id: @topic.id), method: :topic, class: 'btn btn-primary' %>
   <% end %>
 <% end %>
 
 <h3>topic詳細</h3>
+<p>投稿者:<%=link_to "#{@topic.user.name}", user_path(@topic.user.id) %></p>
 <p>タイトル：<%= @topic.title %></p>
 <p>内容：<%= @topic.content %></p>
 <p>画像：<%= image_tag @topic.image.url %></p>
@@ -17,10 +18,10 @@
   <p id="notice"><%= notice %></p>
   <div class="topic-text">
   </div>
-  <p>コメント一覧（ここから下の内容が重要）</p>
+  <p>コメント一覧</p>
   <div id="comments_area">
     <%= render partial: 'comments/index', locals: { comments: @comments, topic: @topic } %>
   </div>
   <%= render partial: 'comments/form', locals: { comment: @comment, topic: @topic } %>
-</div>
+  </div>
 <%= link_to '一覧に戻る', topics_path %> 

@@ -1,2 +1,19 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h3>Myプロフィール</h3>
+<%= image_tag(@user.image.to_s) %>
+<%= @user.name %>
+<% @users.each do |user| %>
+  <%= link_to topic_path(user), class:' topic-color','data-turbolinks': false do %>
+
+    <div class = 'user_all_index'>
+      <p><%= image_tag(user.image.to_s )%></p>
+      <p>タイトル:<%= user.title %></p>
+      <p>内容:<%= user.content %></p>
+    </div>
+
+  <% end %>
+<% end %>
+<%= render 'follow_form', user: @user unless current_user == @user %>
+
+<section class="stats">
+  <%= render 'stats' %>
+</section>
