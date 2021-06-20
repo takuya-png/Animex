@@ -23,11 +23,11 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end  
-  
+
   resources :topics do
     resources :comments
-    collection do
-      get 'search'
-    end
+      collection do
+        get 'search'
+      end
   end
 end

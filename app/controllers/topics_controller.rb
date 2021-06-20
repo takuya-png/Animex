@@ -6,7 +6,6 @@ class TopicsController < ApplicationController
     @topics = Topic.all
     @q = @topics.ransack(params[:q])
     @topics = @q.result(distinct: true)
-    # @favorite = current_user.favorites.find_by(topic_id: @topic.id)
   end
 
   def new
