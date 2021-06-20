@@ -4,7 +4,8 @@ class TopicsController < ApplicationController
 
   def index
     @topics = Topic.all
-    # @favorite = current_user.favorites.find_by(topic_id: @topic.id)
+    @q = @topics.ransack(params[:q])
+    @topics = @q.result(distinct: true)
   end
 
   def new
@@ -49,7 +50,9 @@ class TopicsController < ApplicationController
     sign_in user
     redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
   end
+
   private
+
 
   def topic_params
     params.require(:topic).permit(:title, :content, :image, :image_cache, :user_id)

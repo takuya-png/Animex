@@ -3,8 +3,13 @@
 <% else %>
   <h1>Topics</h1>
 <% end %>
-<%= link_to 'ゲストログイン（閲覧用）', topics_guest_sign_in_path, method: :post %>
+<%= link_to 'ゲストログイン（閲覧用）', topics_guest_sign_in_path, method: :post %><br>
 <table class = "topic_content">
+  <%= search_form_for @q do |f| %><br>
+    <%= f.label :title_cont, 'タイトルor内容検索' %>
+    <%= f.search_field :title_or_content_cont %>
+    <%= f.submit '検索' %>
+  <% end %>
   <tr>
     <th>タイトル</th>
     <th>内容</th>
