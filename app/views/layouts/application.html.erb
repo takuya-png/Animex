@@ -27,21 +27,24 @@
                     <ul class="navbar-nav mr-auto">
                       <li class="nav-item active">
                       <li class="nav-item">
-                        <%= link_to "ゲストログイン(閲覧用)", topics_guest_sign_in_path, method: :post, class: 'nav-link' %>
+                        <%= link_to "ゲストログイン(閲覧用)", topics_path, method: :post, class: 'nav-link' %>
                       </li>
                       <% if user_signed_in? %>
                         <li class="nav-item">
-                          <%= link_to 'アカウント', edit_user_registration_path, class: 'nav-link' %>
+                          <%= link_to 'アカウント編集', edit_user_registration_path, class: 'nav-link' %>
                         </li>
                         <li class="nav-item">
                           <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %>
                         </li>
+                        <li class="nav-item">
+                      <%= link_to 'Topic一覧', topics_path, class: 'nav-link' %>
+                    </li>
                       <% else %>
                         <li class="nav-item">
                           <%= link_to "新規登録", new_user_registration_path, class: 'nav-link' %>
                         </li>
                         <li class="nav-item">
-                          <%= link_to "ログイン", new_user_session_path, class: 'nav-link' %>
+                          <%= link_to "ログイン", topics_path, class: 'nav-link' %>
                         </li>
                       <% end %>
                       </li>
@@ -54,14 +57,14 @@
         </section>
       </header>
       <!-- Footer================================================== -->
-<div id="footer" class="fixed-bottom" style="height:30px; background-color: #008080; color: #fff;">
+<div id="footer" class="fixed-bottom" style="height:30px; background-color: #008080; color: #fff; padding-top: 10px;">
         <p class="text-center">© 2021 Animex.All Right Reserved.</p>
 </div>
 
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="./js/bootstrap.min.js"></script>
+<%# <script src="./js/bootstrap.min.js"></script> %>
 
 <script type="text/javascript">
   $('.bs-component [data-toggle="popover"]').popover();

@@ -1,3 +1,31 @@
 <%= render'application/sidebar' %>
-<h3>topic作成</h3>
-<%= render 'form' %>
+<h3>Topic作成</h3>
+<% if @topic.errors.any? %>
+  <ul>
+    <% @topic.errors.full_messages.each do |msg| %>
+    <li>
+      <%= msg %>
+    </li>
+    <% end %>
+  </ul>
+<% end %>
+<%= form_with(model:@topic, local: true) do |form| %>
+  <div>
+    <%= form.label :title, 'タイトル' %>
+    <%= form.text_field :title %>
+  </div>
+  <div>
+    <%= form.label :content, 'コンテンツ' %>
+    <%= form.text_field :content %>
+  </div>
+  <div>
+    <%= form.label :image, '画像' %>
+    <%= image_tag(@topic.image.url) if @topic.image && @topic.image.url %>
+    <%= form.file_field :image %>
+    <%= form.hidden_field :image_cache %>
+  </div>
+  <div>
+    <%= form.submit '投稿' %>
+  </div>
+<% end %>
+<%= link_to '一覧に戻る', topics_path %> 

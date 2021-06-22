@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   root 'tops#index'
 
   resources :relationships, only: [:create, :destroy]
-  resources :favorites, only: [:create, :destroy]
+  resources :favorites, only: [:create, :destroy, :index]
   resources :users do
     member do
       get :following, :followers
