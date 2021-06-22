@@ -3,7 +3,7 @@ class CreateTopics < ActiveRecord::Migration[5.2]
     create_table :topics do |t|
       t.string :title
       t.text :content
-      t.string :image
+      t.text :image
 
       t.timestamps
     end
