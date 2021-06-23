@@ -1,10 +1,10 @@
 <%= render'application/sidebar' %>
+<%# binding.irb %>
 <% if current_user.try(:admin?) %>
   <h1>Topics_admin</h1>
 <% else %>
   <h1>Topics</h1>
 <% end %>
-<%= link_to 'ゲストログイン（閲覧用）', topics_guest_sign_in_path, method: :post %><br>
 <table class = "topic_content">
   <%= search_form_for @q do |f| %><br>
     <%= f.label :title_cont, 'タイトルor内容検索' %>
@@ -20,7 +20,7 @@
   <tr>
     <td><%= topic.title %></td>
     <td><%= topic.content %></td>
-    <td><%= image_tag(topic.image.url) if topic.image && topic.image.url %><%#= image_tag topic.image.url %></td>
+    <td><%= image_tag(topic.image.url) if topic.image && topic.image.url %></td>
     <td><%= link_to '詳細', topic_path(topic.id) %></td>
     <td><%= link_to '編集', edit_topic_path(topic.id) %></td>
     <td><%= link_to '削除', topic_path(topic.id), method: :delete, data: {confirm: '削除してよろしいですか？'} %></td>

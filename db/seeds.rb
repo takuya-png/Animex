@@ -32,13 +32,13 @@ user5 = User.create!(
 topic1_1 = Topic.create!(
   title: "ソードアートオンライン",
   content: "キリト△",
-  image: File.open("app/assets/images/icon1.jpeg"),
+  image: File.open("./app/assets/images/icon1.jpg"),
   user_id: user1.id,
 )
 topic1_2 = Topic.create!(
   title: "七つの大罪",
   content: "メリオダス",
-  image: File.open("app/assets/images/icon2.jpeg"),
+  image: File.open("./app/assets/images/icon2.jpg"),
   user_id: user1.id,
 )
 #------------
@@ -46,50 +46,50 @@ topic1_2 = Topic.create!(
 topic2_1 = Topic.create!(
   title: "東京喰種",
   content: "金木研",
-  image: File.open("app/assets/images/icon3.jpeg"),
+  image: File.open("./app/assets/images/icon3.jpeg"),
   user_id: user2.id,
 )
 topic2_2 = Topic.create!(
   title: "進撃の巨人",
   content: "リヴァイ兵長",
-  image: File.open("app/assets/images/icon4.jpeg"),
+  image: File.open("./app/assets/images/icon4.jpeg"),
   user_id: user2.id,
 )
 
 topic3_1 = Topic.create!(
   title: "クレイモア",
   content: "クレア",
-  image: File.open("app/assets/images/icon5.jpeg"),
+  image: File.open("./app/assets/images/icon5.jpg"),
   user_id: user3.id,
 )
 topic3_2 = Topic.create!(
   title: "炎炎ノ消防隊",
   content: "アーサー",
-  image: File.open("app/assets/images/icon6.jpeg"),
+  image: File.open("./app/assets/images/icon6.jpg"),
   user_id: user3.id,
 )
 topic4_1 = Topic.create!(
   title: "魔王学院の不適合者",
   content: "アノス・ヴォルディゴード",
-  image: File.open("app/assets/images/icon7.jpeg"),
+  image: File.open("./app/assets/images/icon7.jpeg"),
   user_id: user4.id,
 )
 topic4_2 = Topic.create!(
   title: "デュラララ!!",
   content: "Seiji Yagiri & Mika Harima",
-  image: File.open("app/assets/images/icon8.jpeg"),
+  image: File.open("./app/assets/images/icon8.jpg"),
   user_id: user4.id,
 )
 topic5_1 = Topic.create!(
   title: "七つの大罪",
   content: "Undead Van",
-  image: File.open("app/assets/images/20210124_icon9.jpeg"),
+  image: File.open("./app/assets/images/icon9.png"),
   user_id: user5.id,
 )
 topic5_2 = Topic.create!(
   title: "HELLSING",
   content: "Alucarod…逆から読むとDoraculaって知ってた？",
-  image: File.open("app/assets/images/icon10.jpeg"),
+  image: File.open("./app/assets/images/icon10.jpg"),
   user_id: user5.id,
 )
 Favorite.create!(
