@@ -4,7 +4,13 @@ class Users::SessionsController < Devise::SessionsController
     sign_in user
     redirect_to topics_path, notice: 'ゲストユーザーとしてログインしました。'
   end
-  # before_action :configure_sign_in_params, only: [:create]
+
+  def guest_admin_sign_in
+    admin = User.guest_admin
+    sign_in admin
+    redirect_to topics_path, notice: '管理者としてログインしました。'
+  end
+  before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
   # def new
