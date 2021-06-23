@@ -6,13 +6,20 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable,:trackable, :validatable, :confirmable
+         :recoverable, :rememberable,:trackable, :validatable
 
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
     end
   end
+
+  def self.guest_admin
+    find_or_create_by!(email: 'guest_admin@example.com',admin: true) do |admin|
+      admin.password = SecureRandom.urlsafe_base64
+    end
+  end
+
 
   def follow!(other_user)
     active_relationships.create!(followed_id: other_user.id)
@@ -24,6 +31,10 @@ class User < ApplicationRecord
 
   def unfollow!(other_user)
     active_relationships.find_by(followed_id: other_user.id).destroy
+  end
+
+  def email_required?
+    false
   end
 
   mount_uploader :image, ImageUploader

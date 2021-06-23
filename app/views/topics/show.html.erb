@@ -1,5 +1,4 @@
 <%= render'application/sidebar' %>
-<h1>Posts#show</h1>
 <% unless @topic.user_id == current_user.id %>
   <% if @favorite.present? %>
     <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
@@ -8,7 +7,7 @@
   <% end %>
 <% end %>
 
-<h3>topic詳細</h3>
+<h3>Topic詳細</h3>
 <p>投稿者:<%=link_to "#{@topic.user.name}", user_path(@topic.user.id) %></p>
 <p>タイトル：<%= @topic.title %></p>
 <p>内容：<%= @topic.content %></p>

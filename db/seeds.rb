@@ -1,127 +1,114 @@
 user1 = User.create!(
-  name: "司",
+  name: "拓也",
   email: "test@docomo.com",
   password: "password",
   admin: true,
-  image: File.open("app/assets/images/16083C3F-3C68-404A-AAE9-E42169BFDCBB_1_105_c.jpeg"),
 )
 
 user2 = User.create!(
-  name: "秋人",
+  name: "将悟",
   email: "test2@docomo.com",
   password: "password",
-  image: File.open("app/assets/images/B8C5C614-41A0-4529-9644-6F354FE151E4_1_105_c.jpeg"),
 )
 
 user3 = User.create!(
-  name: "柘榴",
+  name: "陽一郎",
   email: "test3@docomo.com",
   password: "password",
-  image: File.open("app/assets/images/B8C5C614-41A0-4529-9644-6F354FE151E4_1_105_c.jpeg"),
-)
-user4 = User.create!(
-  name: "晶",
-  email: "test4@docomo.com",
-  password: "password",
-  image: File.open("app/assets/images/__B__400x400.jpeg"),
-)
-user5 = User.create!(
-  name: "黎二",
-  email: "test5@docomo.com",
-  password: "password",
-  image: File.open("app/assets/images/1280x1024_01.jpeg"),
 )
 
-post1_1 = Post.create!(
-  title: "自然豊か！！",
-  content: "壮大な自然が広がっている",
-  address: "熊本県上益城郡山都町下馬尾 286番地4",
-  image: File.open("app/assets/images/640a9_0000007675.jpeg"),
+user4 = User.create!(
+  name: "里沙",
+  email: "test4@docomo.com",
+  password: "password",
+)
+
+user5 = User.create!(
+  name: "諒",
+  email: "test5@docomo.com",
+  password: "password",
+)
+
+topic1_1 = Topic.create!(
+  title: "ソードアートオンライン",
+  content: "キリト△",
+  image: File.open("./app/assets/images/icon1.jpg"),
   user_id: user1.id,
 )
-post1_2 = Post.create!(
-  title: "ゆっくりしませんか？",
-  content: "動物たちが可愛い！！！",
-  address: "熊本県阿蘇郡西原村河原３９４４−１",
-  image: File.open("app/assets/images/spot-kumamoto-kumamoto_12.jpeg"),
+topic1_2 = Topic.create!(
+  title: "七つの大罪",
+  content: "メリオダス",
+  image: File.open("./app/assets/images/icon2.jpg"),
   user_id: user1.id,
 )
 #------------
 
-post2_1 = Post.create!(
-  title: "熊本城",
-  content: "熊本城です！！絶景です！",
-  address: "熊本県熊本市中央区本丸１−１",
-  image: File.open("app/assets/images/spot-kumamoto-kumamoto_01.jpeg"),
+topic2_1 = Topic.create!(
+  title: "東京喰種",
+  content: "金木研",
+  image: File.open("./app/assets/images/icon3.jpeg"),
   user_id: user2.id,
 )
-post2_2 = Post.create!(
-  title: "阿蘇の自然が凄くいい！",
-  content: "自然が凄く綺麗で心がリフレッシュされます♪",
-  address: "熊本県阿蘇郡南阿蘇村河陽5579-3 ",
-  image: File.open("app/assets/images/spot-kumamoto-kumamoto_08.jpeg"),
+topic2_2 = Topic.create!(
+  title: "進撃の巨人",
+  content: "リヴァイ兵長",
+  image: File.open("./app/assets/images/icon4.jpeg"),
   user_id: user2.id,
 )
 
-post3_1 = Post.create!(
-  title: "レトロな銭湯",
-  content: "レトロな感じに凄く惹かれる！！店主のおじちゃんが凄く優しくて面白い！！",
-  address: "三重県伊賀市上野西日南1778",
-  image: File.open("app/assets/images/f0097493_2330448.jpeg"),
+topic3_1 = Topic.create!(
+  title: "クレイモア",
+  content: "クレア",
+  image: File.open("./app/assets/images/icon5.jpg"),
   user_id: user3.id,
 )
-post3_2 = Post.create!(
-  title: "たこ焼きミルク",
-  content: "夫婦で仲良くたこ焼きを作られていて凄く和む",
-  address: "三重県名張市すずらん台西１番町２３８",
-  image: File.open("app/assets/images/8D88EB9F-6E51-447A-B5F0-9160AA2967B1_1_105_c.jpeg"),
+topic3_2 = Topic.create!(
+  title: "炎炎ノ消防隊",
+  content: "アーサー",
+  image: File.open("./app/assets/images/icon6.jpg"),
   user_id: user3.id,
 )
-post4_1 = Post.create!(
-  title: "奈良公園",
-  content: "奈良公園には鹿がいっぱい！！かわいい🌟",
-  address: "奈良県奈良市芝辻町543",
-  image: File.open("app/assets/images/nara001.jpeg"),
+topic4_1 = Topic.create!(
+  title: "魔王学院の不適合者",
+  content: "アノス・ヴォルディゴード",
+  image: File.open("./app/assets/images/icon7.jpeg"),
   user_id: user4.id,
 )
-post4_2 = Post.create!(
-  title: "富士山！！！",
-  content: "やっぱり富士山は良いものだ♪",
-  address: "山梨県富士吉田市浅間2-4-1",
-  image: File.open("app/assets/images/picture_pc_70eaf3f95256cc94be55f36e2cfa6159.jpeg"),
+topic4_2 = Topic.create!(
+  title: "デュラララ!!",
+  content: "Seiji Yagiri & Mika Harima",
+  image: File.open("./app/assets/images/icon8.jpg"),
   user_id: user4.id,
 )
-post5_1 = Post.create!(
-  title: "綺麗な京都の街並み",
-  content: "街並みがきれいです！！是非きてください！！",
-  address: "京都府京都市上京区",
-  image: File.open("app/assets/images/20210124_kyoto-kanko_017.jpeg"),
+topic5_1 = Topic.create!(
+  title: "七つの大罪",
+  content: "Undead Van",
+  image: File.open("./app/assets/images/icon9.png"),
   user_id: user5.id,
 )
-post5_2 = Post.create!(
-  title: "草津温泉",
-  content: "一度はきてみて草津の温泉♨️",
-  address: "群馬県吾妻郡草津町草津",
-  image: File.open("app/assets/images/gunma.jpeg"),
+topic5_2 = Topic.create!(
+  title: "HELLSING",
+  content: "Alucarod…逆から読むとDoraculaって知ってた？",
+  image: File.open("./app/assets/images/icon10.jpg"),
   user_id: user5.id,
 )
 Favorite.create!(
   [
     # user1
-    {user_id: user1.id, post_id: post2_1.id},
-    {user_id: user1.id, post_id: post3_1.id},
+    {user_id: user1.id, topic_id: topic2_1.id},
+    {user_id: user1.id, topic_id: topic3_1.id},
     # user2
-    {user_id: user2.id, post_id: post3_2.id},
-    {user_id: user2.id, post_id: post4_1.id},
+    {user_id: user2.id, topic_id: topic3_2.id},
+    {user_id: user2.id, topic_id: topic4_1.id},
     # user3
-    {user_id: user3.id, post_id: post4_2.id},
-    {user_id: user3.id, post_id: post5_1.id},
+    {user_id: user3.id, topic_id: topic4_2.id},
+    {user_id: user3.id, topic_id: topic5_1.id},
     # user4
-    {user_id: user4.id, post_id: post5_2.id},
-    {user_id: user4.id, post_id: post1_1.id},
+    {user_id: user4.id, topic_id: topic5_2.id},
+    {user_id: user4.id, topic_id: topic1_1.id},
     # user5
-    {user_id: user5.id, post_id: post1_1.id},
-    {user_id: user5.id, post_id: post2_2.id},
+    {user_id: user5.id, topic_id: topic1_1.id},
+    {user_id: user5.id, topic_id: topic2_2.id},
   ]
 )
 # フォロー/フォロワー
