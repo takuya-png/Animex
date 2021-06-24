@@ -15,9 +15,9 @@ describe 'topicモデル機能', type: :model do
         expect(topic).to be_invalid
       end
     end
-    context 'タイトルが20文字以上の場合' do
+    context 'タイトルが51文字以上の場合' do
       it 'バリデーションエラーとなる' do
-        topic.title = 'a'*21
+        topic.title = 'a'*51
         expect(topic).to be_invalid
       end
     end
@@ -32,9 +32,9 @@ describe 'topicモデル機能', type: :model do
         expect(topic).to be_invalid
       end
     end
-    context 'コンテントが255文字以上の場合' do
+    context 'コンテントが301文字以上の場合' do
       it 'バリデーションエラーとなる' do
-        topic.content = 'a'*256
+        topic.content = 'a'*301
         expect(topic).to be_invalid
       end
     end
