@@ -15,7 +15,9 @@
  */
 
 @import "bootstrap";
-
+body {
+  padding-bottom: 60px;
+}
 .mw-md {
   max-width: 576px;
 }
@@ -30,4 +32,8 @@
 
 .alert-alert {
   @extend .alert-danger;
+}
+.topic_show.content {
+  margin-left: 260px;
+  padding: 40px 10px; 
 }
