@@ -33,7 +33,13 @@ body {
 .alert-alert {
   @extend .alert-danger;
 }
+
 .topic_show.content {
+  margin-left: 260px;
+  padding: 40px 10px; 
+}
+
+.index_container {
   margin-left: 260px;
   padding: 40px 10px; 
 }
