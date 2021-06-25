@@ -98,7 +98,6 @@ RSpec.describe '投稿管理機能', type: :system do
   describe 'トピック検索機能' do
     context 'トピック検索した場合' do
       it '該当の投稿が表示される' do
-        binding.irb
         fill_in "q[title_or_content_cont]" ,with: '東京'
         click_button '検索'
         expect(page).to have_content '検索結果'
