@@ -10,7 +10,7 @@
     </div>
   <% end %>
   <div class="field">
-    <%= form.text_area :content, id: "comment_content_#{@topic.id}" %>
+    <%= form.text_area :content, id: "comment_content_#{@topic.id}" ,placeholder:"コメントを入力" %>
     <%= form.label :content %>
   </div>
   <div class="field">
