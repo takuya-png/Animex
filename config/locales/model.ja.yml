@@ -1,0 +1,26 @@
+ja:
+  activerecord:
+    models:
+      topic: 投稿
+      user: ユーザー
+      comment: コメント
+      message: メッセージ
+    attributes:
+      topic:
+        title: タイトル
+        content: 内容
+        image: 写真
+        address: 住所
+      user:
+        image: 写真
+        name: ニックネーム
+        email: メールアドレス
+        current_password: 現在のパスワード
+        password: パスワード
+        password_confirmation: 確認用パスワード
+        remember_me: ログインを記憶
+      comment:
+        content: コメント
+      message:
+        read: 既読
+        body: 本文
