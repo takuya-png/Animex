@@ -6,7 +6,7 @@
 <% end %>
 <%= search_form_for @q do |f| %><br>
   <%= f.label :title_cont, 'タイトルor内容検索' %>
-  <%= f.search_field :title_or_content_cont %>
+  <%= f.search_field :title_or_content_cont ,placeholder:"タイトルor内容"%>
   <%= f.submit '検索' %>
 <% end %>
 <table class="topic_content">

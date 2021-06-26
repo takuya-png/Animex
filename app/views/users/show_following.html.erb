@@ -1,6 +1,6 @@
 <%= render'application/sidebar' %>
-<h1>フォロワー一覧</h1>
-<% @user.followers.each do |user| %>
+<h1>フォロー一覧</h1>
+<% @user.following.each do |user| %>
 <table>
 <tr>
   <td>  <%= user.name %> </td>

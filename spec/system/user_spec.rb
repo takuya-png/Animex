@@ -60,11 +60,9 @@ RSpec.describe 'User関連機能',type: :system do
           fill_in 'user[password]', with: 'password'
           click_button 'ログイン'
           expect(page).to have_content 'Animex'
-          # expect(page).to have_content 'ログインしました。'
           sleep(0.5)
-          # binding.irb
           click_on'ログアウト'
-          expect(page)
+          expect(page).to have_content '好きなアニメについて話したい人が交流できる場所'
         end
       end
     end
@@ -94,7 +92,7 @@ RSpec.describe 'User関連機能',type: :system do
           expect(page).to have_content 'Topics'
           expect(page).to have_content 'タイトル'
           expect(page).to have_content 'タイトルor内容検索'
-          expect(page).to have_content 'ホーム'
+          expect(page).to have_content 'Topic一覧'
         end
     end
   end
