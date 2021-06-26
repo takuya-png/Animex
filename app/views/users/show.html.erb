@@ -1,5 +1,5 @@
 <h3>Myプロフィール</h3>
-<%= image_tag(@user.image.to_s) %>
+<%#= image_tag(@user.image.to_s) %>
 <%= @user.name %>
 <% @users.each do |user| %>
   <%= link_to topic_path(user), class:' topic-color','data-turbolinks': false do %>
@@ -17,3 +17,4 @@
 <section class="stats">
   <%= render 'stats' %>
 </section>
+<%= link_to t('devise.shared.links.back'), :back %>
