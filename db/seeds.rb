@@ -88,7 +88,7 @@ topic5_1 = Topic.create!(
 )
 topic5_2 = Topic.create!(
   title: "HELLSING",
-  content: "Alucarod…逆から読むとDoraculaって知ってた？",
+  content: "Alucard…逆から読むとDraculaって知ってた？",
   image: File.open("./app/assets/images/icon10.jpg"),
   user_id: user5.id,
 )

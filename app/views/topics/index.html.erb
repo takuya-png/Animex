@@ -1,29 +1,28 @@
 <%= render'application/sidebar' %>
-<%# binding.irb %>
 <% if current_user.try(:admin?) %>
   <h1>Topics_admin</h1>
 <% else %>
   <h1>Topics</h1>
 <% end %>
-<table class = "topic_content">
-  <%= search_form_for @q do |f| %><br>
-    <%= f.label :title_cont, 'タイトルor内容検索' %>
-    <%= f.search_field :title_or_content_cont %>
-    <%= f.submit '検索' %>
-  <% end %>
+<%= search_form_for @q do |f| %><br>
+  <%= f.label :title_cont, 'タイトルor内容検索' %>
+  <%= f.search_field :title_or_content_cont %>
+  <%= f.submit '検索' %>
+<% end %>
+<table class="topic_content">
   <tr>
     <th>タイトル</th>
     <th>内容</th>
     <th>image</th>
   </tr>
   <% @topics.each do |topic| %>
-  <tr>
-    <td><%= topic.title %></td>
-    <td><%= topic.content %></td>
-    <td><%= image_tag(topic.image.url) if topic.image && topic.image.url %></td>
-    <td><%= link_to '詳細', topic_path(topic.id) %></td>
-    <td><%= link_to '編集', edit_topic_path(topic.id) %></td>
-    <td><%= link_to '削除', topic_path(topic.id), method: :delete, data: {confirm: '削除してよろしいですか？'} %></td>
+  <tr class="topics-index_row" id=<%= "topics-index_row-#{topic.id}" %>>
+    <td id=<%= "topics-index_row-#{topic.id}_title" %>><%= topic.title %></td>
+    <td id=<%= "topics-index_row-#{topic.id}_content" %>><%= topic.content %></td>
+    <td id=<%= "topics-index_row-#{topic.id}_image" %>><%= image_tag(topic.image.url) if topic.image && topic.image.url %></td>
+    <td><%= link_to '詳細', topic_path(topic.id), id: "topics-index_row-#{topic.id}_show" %></td>
+    <td><%= link_to '編集', edit_topic_path(topic.id), id: "topics-index_row-#{topic.id}_edit" %></td>
+    <td><%= link_to '削除', topic_path(topic.id), method: :delete, data: {confirm: '削除してよろしいですか？'}, id: "topics-index_row-#{topic.id}_destroy" %></td>
     <td><% if user_signed_in? %>
       <% unless topic.user_id == current_user.id %>
         <% if current_user.favorites.find_by(topic_id: topic.id).present? %>
@@ -36,4 +35,3 @@
   </tr>
   <% end %>
 </table>
-<%= link_to 'topic新規作成', new_topic_path %> 

@@ -1,12 +1,6 @@
 <%= render'application/sidebar' %>
-<%# <div class = "content_index"> %>
-  <%# <div class="search_box"> %>
     <h3>お気に入り一覧</h3>
-    <%#= image_tag(current_user.image.to_s) %>
     <%= current_user.name %>
-  <%# </div> %>
-
-  <%# <div class= 'content_target'> %>
     <% @favorites.each do |favorite| %>
       <%= link_to topic_path(favorite.topic.id), class:' topic-color','data-turbolinks': false do %>
         <div class ="index_container alert alert-info">
@@ -18,5 +12,3 @@
         </div>
       <% end %>
     <% end %>
-  <%# </div> %>
-<%# </div> %>
