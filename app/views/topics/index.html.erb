@@ -21,14 +21,16 @@
     <td id=<%= "topics-index_row-#{topic.id}_content" %>><%= topic.content %></td>
     <td id=<%= "topics-index_row-#{topic.id}_image" %>><%= image_tag(topic.image.url) if topic.image && topic.image.url %></td>
     <td><%= link_to '詳細', topic_path(topic.id), id: "topics-index_row-#{topic.id}_show" %></td>
-    <td><%= link_to '編集', edit_topic_path(topic.id), id: "topics-index_row-#{topic.id}_edit" %></td>
-    <td><%= link_to '削除', topic_path(topic.id), method: :delete, data: {confirm: '削除してよろしいですか？'}, id: "topics-index_row-#{topic.id}_destroy" %></td>
+    <% if current_user.id == topic.user.id %>
+      <td><%= link_to '編集', edit_topic_path(topic.id), id: "topics-index_row-#{topic.id}_edit" %></td>
+      <td><%= link_to '削除', topic_path(topic.id), method: :delete, data: {confirm: '削除してよろしいですか？'}, id: "topics-index_row-#{topic.id}_destroy" %></td>
+    <% end %>
     <td><% if user_signed_in? %>
       <% unless topic.user_id == current_user.id %>
         <% if current_user.favorites.find_by(topic_id: topic.id).present? %>
           <%= link_to 'お気に入り解除する', favorite_path(id: current_user.favorites.find_by(topic_id: topic.id).id), method: :delete, class: 'btn btn-danger' %>
         <% else %>
-          <%= link_to 'お気に入りする', favorites_path(topic_id: topic.id), method: :post, class: 'btn btn-primary' %>
+          <%= link_to 'お気に入りする', favorites_path(topic_id: topic.id), method: :topic, class: 'btn btn-primary' %>
         <% end %>
       <% end %>
     <% end %></td>
