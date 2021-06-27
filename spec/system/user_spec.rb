@@ -7,8 +7,6 @@ RSpec.describe 'User関連機能',type: :system do
   describe 'devise関連機能' do
     context '全ての記述が正しい場合' do
       it 'サインアップできる' do
-        # binding.irb
-        # visit new_user_registration_path
         click_on '新規登録'
         fill_in "user[name]", with: "永澤"
         fill_in "user[email]", with: "test@test.com"
@@ -22,12 +20,8 @@ RSpec.describe 'User関連機能',type: :system do
     end
     context '入力漏れが合った場合' do
       it 'サインアップできない' do
-        # find("#sign_up").click
         click_on '新規登録'
         click_button 'commit'
-        # expect(page).to have_content "Nameを入力してください"
-        # expect(page).to have_content "Eメールを入力してください"
-        # expect(page).to have_content "パスワードを入力してください"
         expect(current_path).to have_content '/users/sign_up'
       end
     end
@@ -47,7 +41,6 @@ RSpec.describe 'User関連機能',type: :system do
         fill_in 'user[email]',with: 'nagasawa@gmail.com'
         fill_in 'user[password]', with: 'ミスパスワード'
         click_button 'ログイン'
-        # expect(page).to have_content 'Eメールまたはパスワードが違います。'
         expect(current_path).to have_content '/users/sign_in'
       end
     end
@@ -72,14 +65,12 @@ RSpec.describe 'User関連機能',type: :system do
           fill_in 'user[email]',with: 'takuya@docomo.ne.jp'
           fill_in 'user[password]', with: 'password'
           click_button 'ログイン'
-          # binding.irb
           click_on 'Topic一覧'
           click_on 'Myプロフィール'
           expect(page).to have_content 'Myプロフィール'
         end
         it 'ゲストログイン機能' do
           visit root_path
-          # binding.irb
           click_on 'ゲストログイン(閲覧用)'
           expect(page).to have_content 'Topics'
           expect(page).to have_content 'タイトル'
@@ -87,7 +78,6 @@ RSpec.describe 'User関連機能',type: :system do
         end
         it 'ゲスト管理者ログイン機能' do
           visit root_path
-          # binding.irb
           click_on 'ゲスト管理者ログイン(閲覧用)'
           expect(page).to have_content 'Topics'
           expect(page).to have_content 'タイトル'
