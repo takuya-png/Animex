@@ -8,7 +8,7 @@ class Users::SessionsController < Devise::SessionsController
   def admin_guest_sign_in
     guest_user = User.admin_guest
     sign_in guest_user
-    redirect_to root_path, notice: 'ログインしました。(管理者ゲスト)'
+    redirect_to topics_path, notice: 'ログインしました。(管理者ゲスト)'
   end
 
   before_action :configure_sign_in_params, only: [:create]
