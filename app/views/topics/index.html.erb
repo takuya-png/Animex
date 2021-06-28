@@ -23,10 +23,10 @@
     <td id=<%= "topics-index_row-#{topic.id}_title" %>><%= topic.title %></td>
     <td id=<%= "topics-index_row-#{topic.id}_content" %>><%= topic.content %></td>
     <td id=<%= "topics-index_row-#{topic.id}_image" %>><%= image_tag(topic.image.url) if topic.image && topic.image.url %></td>
-    <td><%= link_to '詳細', topic_path(topic.id), id: "topics-index_row-#{topic.id}_show" %></td>
+    <td><%= link_to '詳細', topic_path(topic.id), id: "topics-index_row-#{topic.id}_show", class: 'btn btn-primary' %></td>
     <% if current_user.id == topic.user.id %>
-      <td><%= link_to '編集', edit_topic_path(topic.id), id: "topics-index_row-#{topic.id}_edit" %></td>
-      <td><%= link_to '削除', topic_path(topic.id), method: :delete, data: {confirm: '削除してよろしいですか？'}, id: "topics-index_row-#{topic.id}_destroy" %></td>
+      <td><%= link_to '編集', edit_topic_path(topic.id), id: "topics-index_row-#{topic.id}_edit", class: 'btn btn-primary' %></td>
+      <td><%= link_to '削除', topic_path(topic.id), method: :delete, data: {confirm: '削除してよろしいですか？'}, id: "topics-index_row-#{topic.id}_destroy", class: 'btn btn-danger' %></td>
     <% end %>
     <td><% if user_signed_in? %>
       <% unless topic.user_id == current_user.id %>
