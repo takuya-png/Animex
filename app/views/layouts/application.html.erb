@@ -36,15 +36,17 @@
                         <li class="nav-item">
                           <%= link_to 'Topic一覧', topics_path, class: 'nav-link' %>
                         </li>
+                        <li class="nav-item">
+                          <% if current_user.try(:admin?) %>
+                            <%= link_to "管理者画面", rails_admin_path, class: 'nav-link' %>
+                          <% end %>
+                        </li>
                       <% else %>
                         <li class="nav-item">
                           <%= link_to "ゲストログイン(閲覧用)", topics_guest_sign_in_path, method: :topic, class: 'nav-link' %>
                         </li>
                         <li class="nav-item">
                           <%= link_to "ゲスト管理者ログイン(閲覧用)", users_guest_admin_sign_in_path, method: :topic, class: 'nav-link' %>
-                        </li>
-                        <li class="nav-item">
-                            <%= link_to "管理者画面", rails_admin_path, class: 'nav-link' %>
                         </li>
                         <li class="nav-item">
                           <%= link_to "新規登録", new_user_registration_path, class: 'nav-link' %>
