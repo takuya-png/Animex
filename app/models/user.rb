@@ -15,13 +15,13 @@ class User < ApplicationRecord
     end
   end
 
-  def self.guest_admin
-    find_or_create_by!(email: 'guest_admin@example.com',admin: true) do |admin|
-      admin.password = SecureRandom.urlsafe_base64
-      user.name = 'guest_admin_user'
+  def self.admin_guest
+    find_or_create_by!(email: 'admin_guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.name =  'admin_guest'
+      user.admin = true
     end
   end
-
 
   def follow!(other_user)
     active_relationships.create!(followed_id: other_user.id)
