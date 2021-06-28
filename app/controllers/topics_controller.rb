@@ -1,6 +1,7 @@
 class TopicsController < ApplicationController
   before_action :set_topic, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
+  before_action :check_sender, only: [:edit, :update, :destroy]
 
   def index
     @topics = Topic.all
@@ -54,12 +55,15 @@ class TopicsController < ApplicationController
 
   private
 
-
   def topic_params
     params.require(:topic).permit(:title, :content, :image, :image_cache, :user_id)
   end
 
   def set_topic
     @topic = Topic.find(params[:id])
+  end
+
+  def check_sender
+    redirect_to topics_path, alert: ‘アクセス権限がありません’ if @topic.user_id != current_user.id
   end
 end

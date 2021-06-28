@@ -1,16 +1,18 @@
 <%= render'application/sidebar' %>
+<div class = "topic_all">
+<div class = "topic_index">
+  <h1>Topics</h1>
 <% if current_user.try(:admin?) %>
-  <h1>Topics</h1>
   <h3><%= link_to "管理者画面へ", rails_admin_path %></h3>
-<% else %>
-  <h1>Topics</h1>
 <% end %>
+
 <%= search_form_for @q do |f| %><br>
   <%= f.label :title_cont, 'タイトルor内容検索' %>
   <%= f.search_field :title_or_content_cont ,placeholder:"タイトルor内容"%>
   <%= f.submit '検索' %>
 <% end %>
-<table class="topic_content">
+</div>
+<table class="topic_content" border = "1">
   <tr>
     <th>タイトル</th>
     <th>内容</th>
@@ -21,10 +23,10 @@
     <td id=<%= "topics-index_row-#{topic.id}_title" %>><%= topic.title %></td>
     <td id=<%= "topics-index_row-#{topic.id}_content" %>><%= topic.content %></td>
     <td id=<%= "topics-index_row-#{topic.id}_image" %>><%= image_tag(topic.image.url) if topic.image && topic.image.url %></td>
-    <td><%= link_to '詳細', topic_path(topic.id), id: "topics-index_row-#{topic.id}_show" %></td>
+    <td><%= link_to '詳細', topic_path(topic.id), id: "topics-index_row-#{topic.id}_show", class: 'btn btn-primary' %></td>
     <% if current_user.id == topic.user.id %>
-      <td><%= link_to '編集', edit_topic_path(topic.id), id: "topics-index_row-#{topic.id}_edit" %></td>
-      <td><%= link_to '削除', topic_path(topic.id), method: :delete, data: {confirm: '削除してよろしいですか？'}, id: "topics-index_row-#{topic.id}_destroy" %></td>
+      <td><%= link_to '編集', edit_topic_path(topic.id), id: "topics-index_row-#{topic.id}_edit", class: 'btn btn-primary' %></td>
+      <td><%= link_to '削除', topic_path(topic.id), method: :delete, data: {confirm: '削除してよろしいですか？'}, id: "topics-index_row-#{topic.id}_destroy", class: 'btn btn-danger' %></td>
     <% end %>
     <td><% if user_signed_in? %>
       <% unless topic.user_id == current_user.id %>
@@ -38,3 +40,4 @@
   </tr>
   <% end %>
 </table>
+</div>

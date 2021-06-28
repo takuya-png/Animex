@@ -7,6 +7,14 @@
 @import "./tops.scss";
 @import "./users.scss";
 
+.topic_content {
+  display: flex;
+  justify-content: center;
+  // top: 60%;
+  // left: 30%;
+  // transform: translateY(-50%);
+}
+
 body {
   padding-bottom: 60px;
 }
@@ -29,6 +37,7 @@ body {
 .topic_show.content {
   margin-left: 260px;
   padding: 40px 10px; 
+  text-align: center;
 }
 
 .index_container {
@@ -42,4 +51,25 @@ body {
 
 li{
   list-style: none;
+}
+
+.topic_content td img {
+  width:100%;
+  height:auto;
+}
+
+element.style {
+  margin:0 auto;
+}
+
+.topic_all {
+  text-align: center;
+}
+
+.topic_content {
+  margin-bottom: 10%;
+}
+
+.topic_search {
+  margin-bottom: 20px;
 }
