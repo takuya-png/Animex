@@ -1,20 +1,23 @@
 <%= render'application/sidebar' %>
 <div class="topic_show content">
-<% unless @topic.user_id == current_user.id %>
-  <% if @favorite.present? %>
-    <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
-  <% else %>
-    <%= link_to 'お気に入りする', favorites_path(topic_id: @topic.id), method: :topic, class: 'btn btn-primary' %>
-  <% end %>
-<% end %>
 
 <h3>Topic詳細</h3>
-<p>投稿者:<%=link_to "#{@topic.user.name}", user_path(@topic.user.id) %></p>
-<p>タイトル：<%= @topic.title %></p>
-<p>内容：<%= @topic.content %></p>
-<p>画像：<%= image_tag @topic.image.url %></p>
-<%= link_to '編集', edit_topic_path(@topic) %> 
-
+<div class = "topic_content">
+  <p><%= image_tag @topic.image.url %></p>
+  <%= link_to '編集', edit_topic_path(@topic) %> 
+  <div class = "topic_inner">
+  <p>投稿者:<%=link_to "#{@topic.user.name}", user_path(@topic.user.id) %></p>
+  <p>タイトル：<%= @topic.title %></p>
+  <p>内容：<%= @topic.content %></p>
+  <% unless @topic.user_id == current_user.id %>
+    <% if @favorite.present? %>
+      <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
+    <% else %>
+      <%= link_to 'お気に入りする', favorites_path(topic_id: @topic.id), method: :topic, class: 'btn btn-primary' %>
+    <% end %>
+  <% end %>
+  </div>
+</div>
 
 <div class="container">
   <p id="notice"><%= notice %></p>
