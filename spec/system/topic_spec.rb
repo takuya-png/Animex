@@ -3,7 +3,7 @@ RSpec.describe '投稿管理機能', type: :system do
   let!(:user) {create(:user)}
   let!(:topic) {create(:topic,user_id: user.id)}
   let!(:topic2) {create(:topic2)}
-  let!(:topic3) {create(:topic3)}
+  # let!(:topic3) {create(:topic3)}
   # let!(:favorite){create(:favorite,topic_id: topic3.id, user_id: user.id)}
 
   before do
@@ -46,7 +46,7 @@ RSpec.describe '投稿管理機能', type: :system do
   describe 'お気に入り登録機能' do
     context 'お気に入りした場合' do
       it 'お気に入り一覧に表示される' do
-        first('tr:nth-child(4) td:nth-child(7)').click
+        first('tr:nth-child(2) td:nth-child(5)').click
         # find('#favorite').click
         click_on 'お気に入り一覧'
         sleep(0.1)
@@ -57,9 +57,9 @@ RSpec.describe '投稿管理機能', type: :system do
     context 'お気に入り解除した場合' do
       it 'お気に入り一覧に表示されなくなる' do
         sleep(0.1)
-        first('tr:nth-child(4) td:nth-child(7)').click
+        first('tr:nth-child(3) td:nth-child(5)').click
         expect(page).to have_content '詳細'
-        first('tr:nth-child(4) td:nth-child(7)').click
+        first('tr:nth-child(3) td:nth-child(5)').click
         click_on 'お気に入り一覧'
         sleep(0.1)
         expect(current_path).to have_content '/favorites'
@@ -85,9 +85,11 @@ RSpec.describe '投稿管理機能', type: :system do
     context '投稿を削除する場合' do
       it '投稿が削除できる' do
         topic = Topic.last
-        find_by_id("topics-index_row-#{topic.id}_destroy").click
-        page.driver.browser.switch_to.alert.accept
-        expect(page).not_to have_selector("#topics-index_row-#{topic.id}")
+        page.accept_confirm do
+          click_on "削除"
+        end
+        # page.driver.browser.switch_to.alert.accept
+        expect(page).not_to have_content '魔王学院の不適合者'
       end
     end
   end
@@ -95,11 +97,11 @@ RSpec.describe '投稿管理機能', type: :system do
     context 'トピック検索した場合' do
       it '該当の投稿が表示される' do
         sleep(0.1)
-        fill_in "q[title_or_content_cont]" ,with: topic3.title
+        fill_in "q[title_or_content_cont]" ,with: topic2.title
         click_button '検索'
         sleep(0.1)
         lists = all(".topics-index_row")
-        node = find_by_id("topics-index_row-#{topic3.id}")
+        node = find_by_id("topics-index_row-#{topic2.id}")
         expect(lists.length).to eq 1
         expect(node).to be_present
       end
