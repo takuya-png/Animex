@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable,:trackable, :validatable
+         :recoverable, :rememberable,:trackable
 
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
@@ -43,5 +43,5 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
-  validates :password, presence: true
+  validates :password, presence: true, on: :create
 end
