@@ -1,10 +1,10 @@
 class TopicsController < ApplicationController
   before_action :set_topic, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy, :index]
-  before_action :check_sender, only: [:edit, :update, :destroy]
+  # before_action :check_sender, only: [:edit, :update, :destroy]
 
   def index
-    @topics = Topic.all
+    @topics = Topic.all.order(created_at: :desc)
     @q = @topics.ransack(params[:q])
     @topics = @q.result(distinct: true)
   end
@@ -29,6 +29,7 @@ class TopicsController < ApplicationController
   end
 
   def edit
+    redirect_to topics_path, notice: "不正操作を記録しました。" unless current_user.id == @topic.user.id
   end
 
   def update
