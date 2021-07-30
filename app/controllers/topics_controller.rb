@@ -1,8 +1,7 @@
 class TopicsController < ApplicationController
   before_action :set_topic, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy, :index]
-  # before_action :check_sender, only: [:edit, :update, :destroy]
-
+  
   def index
     @topics = Topic.all.order(created_at: :desc)
     @q = @topics.ransack(params[:q])
