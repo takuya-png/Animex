@@ -1,7 +1,7 @@
 <%= render'application/sidebar' %>
 <div class = "topic_all">
 <div class = "topic_index">
-  <h1>Topics</h1>
+  <h1 class = "title_tops">Topics</h1>
 <% if current_user.try(:admin?) %>
   <h3><%= link_to "管理者画面へ", rails_admin_path %></h3>
 <% end %>

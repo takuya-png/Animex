@@ -1,11 +1,11 @@
 @import "bootstrap";
-@import "./comments.scss";
-@import "./favorites.scss";
-@import "./relationships.scss";
-@import "./sidebar.scss";
-@import "./topics.scss";
-@import "./tops.scss";
-@import "./users.scss";
+@import "comments";
+@import "favorites";
+@import "relationships";
+@import "sidebar";
+@import "topics";
+@import "tops";
+@import "users";
 
 .topic_content {
   display: flex;
@@ -17,6 +17,7 @@
 
 body {
   padding-bottom: 60px;
+  height: 100ch;
 }
 .mw-md {
   max-width: 576px;
